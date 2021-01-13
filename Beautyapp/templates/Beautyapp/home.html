@@ -1,0 +1,32 @@
+{% extends 'Beautyapp/base.html' %}
+{% block title %} Home {% endblock %}
+{% block content %}
+{% load static %}
+<style> 
+div.c {
+  width: 500px;
+  height: 120px;
+  background-color: red;
+  position: relative;
+  animation: myfirst 5s linear 2s infinite alternate;
+}
+
+@keyframes myfirst {
+  0%   {background-color:red; right: :0px; top:0px;}
+  25%  {background-color:yellow; right: :200px; top:0px;}
+  50%  {background-color:blue; right: :200px; top:200px;}
+  75%  {background-color:green; right: :0px; top:200px;}
+  100% {background-color:red; right: :0px; top:0px;}
+}
+</style>
+<div style="background-attachment: absolute;background-position: 0% 0%;background-size: cover;background-image: url({% static 'images/homepic.jpg' %});background-repeat: no-repeat;height: 588px;width: 100%">
+		<div  class="c" style="position: absolute;left: 820px ;margin-top:170px;">
+
+    				<a href="{% url 'ds' %}" style="font-size: 100px; font-style: italic;font-family: -webkit-body;">WELCOME</a>
+				
+
+		</div>
+</div>
+
+
+{% endblock %}

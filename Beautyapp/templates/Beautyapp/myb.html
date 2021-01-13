@@ -1,0 +1,37 @@
+{% extends 'Beautyapp/base.html' %}
+{% block title %} Mybooking {% endblock %}
+{% block content %}
+<div class="container">
+		<div class="jumbotron col-md-7 mx-auto mt-3">
+		<h3 style="text-align: center;">My bookings</h3>
+		<table class="table table-bordered table-hover table-stripped bg-info">
+			<thead>
+				<tr class="bg-primary">
+					<th>S.no</th>
+					<th>Service Name</th>
+					<th>Service date</th>
+					<th>Service time</th>
+					<th>Status</th>
+					<th>Payment</th>
+					<th colspan="1">Action</th>
+				</tr>
+			</thead>
+			<tbody class="bg-light">
+				{% for j in bm %}
+				<tr>
+					<td>{{forloop.counter}}</td>
+					<td>{{j.services}}</td>
+					<td>{{j.slot_date}}</td>
+					<td>{{j.slot_time}}</td>
+					<td>{{j.status}}</td>
+					<td>{{j.paid}}</td>
+					<td>
+					<a href="{% url 'pay' j.id %}"  class="btn btn-outline-info">paynow</a>
+					</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>
+{% endblock %}

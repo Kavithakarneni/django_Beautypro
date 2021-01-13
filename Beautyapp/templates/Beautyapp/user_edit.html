@@ -1,0 +1,30 @@
+{% extends 'Beautyapp/base.html' %}
+{% block title %}  {% endblock %}
+{% block content %}
+{% load static %}
+<div class="container card-body bg-primary col-md-4 mt-3">
+		<h1 class="alert alert-info">Edit Form</h1>
+		<form method="POST">
+			{% csrf_token %}
+			<div class="form-group">
+				<label for="username">Name</label>
+				<input type="text" name="username" value="{{e.username}}"class="form-control" id="username">
+			</div>
+			<div class="form-group">
+				<label for="first_name">first_name</label>
+				<input type="text" name="first_name"  value="{{e.first_name}}" class="form-control" id="first_name">
+			</div>
+			<div class="form-group">
+				<label for="last_name">last_name</label>
+				<input type="text" name="last_name"  value="{{e.last_name}}" class="form-control" id="last_name">
+			</div>
+			<div class="form-group">
+				<label for="email">Email</label>
+				<input type="email" name="email"  value="{{e.email}}" class="form-control" id="email">
+			</div>
+			<div class="text-center">
+			<input type="submit" value="update" class="btn btn-outline-danger btn-lg">
+			</div>
+		</form>
+	</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'Beautyapp/base.html' %}
+{% block title %} Myservices {% endblock %}
+{% block content %}
+{% load static %}
+<div class="container">
+	<div class="card mt-3 mx-auto col-md-7">
+		<h2 class="bg-dark text-white text-center mx-2 my-2 p-2">Add services</h2>
+		<form method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+			<div class="form-group">
+				<label for="s_name">Name</label>
+				<input type="text" name="s_name" placeholder="enter service name" class="form-control" id="s_name">
+			</div>
+			<div class="form-group">
+				<label for="upload">service image</label>
+				<input type="file" name="s_img" placeholder="uplod image" class="form-control" id="s_img">
+			</div>
+			<div class="form-group">
+				<label for="cost">service cost</label>
+				<input type="number" name="s_cost" placeholder="enter service cost" class="form-control" id="s_cost">
+			</div>
+			<input type="submit" value="Add service" class="btn btn-success btn-block mb-3">
+		</form>
+	</div>
+</div>
+{% endblock %}

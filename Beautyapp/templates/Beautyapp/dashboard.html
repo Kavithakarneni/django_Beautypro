@@ -1,0 +1,33 @@
+  
+{% extends 'Beautyapp/base.html' %}
+{% block title %} Dashboard {% endblock %}
+{% block content %}
+{% load static %}
+      {% csrf_token %}
+<h1></h1>
+{% if messages %}
+  {% for j in messages %}
+  <div class="alert alert-{{j.tags}} alert-dismissible mt-2">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      {{j}}
+  </div>
+  {% endfor %}
+  {% endif %}
+
+<div class="row">
+  
+
+  {% for serv in das %}
+  <div class="col-lg-4">
+    <img class="thumbnil" src="/images/{{serv.s_img}}" style="height: 230px;width: 350px">
+    <div class="box-element product">
+      <h6><strong>{{serv.s_name}}</strong></h6>
+      <hr>
+      <a href="{% url 'book' %}" class="btn btn-success mb-3">Book Appointment</a> 
+      <h4 style="display: inline-block;float:center;">Rs.{{serv.s_cost}}</h4>
+      <hr>
+    </div>
+  </div>
+  {% endfor%}
+</div>
+{% endblock %}

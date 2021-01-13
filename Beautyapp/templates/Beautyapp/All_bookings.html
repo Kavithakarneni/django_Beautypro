@@ -1,0 +1,44 @@
+{% extends 'Beautyapp/base.html' %}
+{% block title %} All booking {% endblock %}
+{% block content %}
+{% load static %}
+
+		<div class="card bg-info col-md-9 mx-auto mt-3 ">
+		<h3 style="text-align: center;">All bookings</h3>
+		<table class="table table-bordered table-hover table-stripped bg-info">
+			<thead>
+				<tr class="bg-#7494b7!important" style="color: floralwhite;">
+					<th>S.no</th>
+					<th>user id</th>
+					<th>Service Name</th>
+					<th>Service date</th>
+					<th>Service time</th>
+					<th> Status </th>
+					<th> Pay Status</th>
+					<th colspan="2">Action</th>
+				</tr>
+			</thead>
+			<tbody class="bg-light">
+				{% for j in al %}
+				<tr>
+					<td>{{forloop.counter}}</td>
+					
+					<td>{{j.user_id}}</td>
+					<td>{{j.services}}</td>
+					<td>{{j.slot_date}}</td>
+					<td>{{j.slot_time}}</td>
+					<td>{{j.status}}</td>
+					<td>{{j.paid}}</td>
+					<td>
+					<a href="{% url 'st' j.id %}"  class="btn btn-outline-success">status change</a>
+					</td>
+					<td>
+					<a href="{% url 'bdel' j.id %}"  class="btn btn-outline-info">delete</a>
+					</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+{% endblock %}

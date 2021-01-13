@@ -1,0 +1,24 @@
+{% extends 'Beautyapp/base.html' %}
+{% block title %} Pay {% endblock %}
+{% block content %}
+{% load static %}
+<div class="container card-body bg-primary col-md-4 mt-3">
+		<h1 class="alert alert-info">Make Payment</h1>
+		<form method="POST">
+			{% csrf_token %}
+			<div class="form-group">
+				<label for="nm">Name</label>
+				<input type="text" name="name" placeholder="enter your name" class="form-control" id="nm">
+			</div>
+			<div class="form-group">
+				<label for="em">Email</label>
+				<input type="email" name="email" placeholder="enter your Email" class="form-control" id="em">
+			</div>
+			<div class="text-center">
+			<input type="submit" value="Pay Now" class="btn btn-outline-danger btn-lg">
+      		<input type="submit" value="Cash on Service" class="btn btn-outline-danger btn-lg" style="display: inline-block;float:center;">
+			</div>
+		</form>
+	</div>
+
+{% endblock %} 

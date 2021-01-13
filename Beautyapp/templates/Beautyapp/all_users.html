@@ -1,0 +1,41 @@
+{% extends 'Beautyapp/base.html' %}
+{% block title %} All users {% endblock %}
+{% block content %}
+
+	<div class="jumbotron col-md-9 mx-auto mt-3">
+		<h3 style="text-align: center;">users</h3>
+		<table class="table table-bordered table-hover table-stripped bg-info">
+			<thead>
+				<tr class="bg-primary">
+					<th>S.no</th>
+					<th>user_id</th>
+					<th>UserName</th>
+					<th>FirstName</th>
+					<th>LastName</th>
+					<th>Email</th>
+					<th colspan="2">Action</th>
+				</tr>
+			</thead>
+			<tbody class="bg-light">
+				{% for f in al %}
+				<tr>
+					<td>{{forloop.counter}}</td>
+					<th>{{f.id}}</th>
+					<td>{{f.username}}</td>
+					<td>{{f.first_name}}</td>
+					<td>{{f.last_name}}</td>
+					<td>{{f.email}}</td>
+					<td>
+					<a href="{% url 'Adel' f.id %}"  class="btn btn-outline-info">delete</a>
+					</td>
+					<td>
+					<a href="{% url 'A_edit' f.id %}"  class="btn btn-outline-info">Edit</a>
+					</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+
+{% endblock %}

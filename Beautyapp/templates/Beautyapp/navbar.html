@@ -1,0 +1,64 @@
+{% load static %}
+<nav class="navbar navbar-expand-sm bg-warning"  style="font-size: x-large;font-family: emoji;">
+  <!-- Brand/logo -->
+  <!-- Navbar links -->
+  <!-- Links -->
+  <ul class="navbar-nav" style="margin-left: 250px">
+    <img src="{% static 'images/homepic.png' %}" style="width:65px">
+    <li class="nav-text">
+      <span style="color:darkblue;font-style:bold;font: message-box;">
+        <h3>Beauty parlour</h3>
+      </span>
+    </li>
+  </ul>
+  <ul class="navbar-nav ml-auto" style="margin-left: 250px">
+    {% if not user.is_authenticated %}
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'Home' %}">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'about' %}">About</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'contact' %}">Contactus</a>
+    </li>
+    {% elif user.is_superuser %}
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'ads' %}">Add service</a>
+    </li>
+     <li class="nav-item">
+      <a class="nav-link" href="{% url 'ser' %}">services</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'allus' %}">All users</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'alb' %}">All bookings</a>
+    </li>
+    {% else %}
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'ds' %}">Dashboard</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'pro' %}">Myprofile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'myb' user.id %}">mybookings</a>
+    </li>
+     <li class="nav-item">
+      <a class="nav-link" href="{% url 'book' %}">Book Appointment</a>
+    </li>
+    {% endif %}
+  </ul>
+  <ul class="navbar-nav">
+    {% if not user.is_authenticated %}
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'login' %}">Login</a>
+    </li>
+    {% else %}
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'lgot' %}">Logout</a>
+    </li>
+     {% endif %}
+  </ul>
+</nav>

@@ -1,0 +1,20 @@
+{% extends 'Beautyapp/base.html' %}
+{% block title %} About {% endblock %}
+{% block content %}
+{% load static %}
+<div style="background-attachment: absolute;background-position: 0% 0%;background-size: cover;background-image: url('{% static 'images/beauty.jpg' %}');background-repeat: no-repeat;height: 575px;width: 100%">
+	<form>
+		<div class="container">
+			 <div class="row">
+    			<div class="col-sm-6">
+					<h1 style="text-align: center;color: #DE2522">OUR PHILOSOPHY</h1>
+					<p style="color: #C1AF75">beauty salon is an establishment that offers a variety of cosmetic treatments and cosmetic services for men and women.   Beauty salons may offer a variety of services including professional hair cutting and styling, manicures and pedicures, and often cosmetics, makeup and makeovers</p>
+					<p style="color: #C1AF75">We have created a salon that offers the highest quality hair services in a setting that is healthier for the environment, our guests and our staff. The Beauty Parlour is designed and built primarily with recycled materials: the floor is made of reclaimed wood from a local grain elevator – preserving and showcasing its natural texture – and most of the fixtures and furniture are refurbished or original vintage pieces</p>
+					<p style="color: #C1AF75">We carry high quality professional hair products designed to ensure our guests look their best, both in the salon and at home. The hair care products we carry have been carefully chosen based both on performance and eco-sensitivity. As a clean air salon, we offer ammonia-free colour services with little to no scent properties or chemical emanation.</p>
+					<p style="color: #C1AF75">Our design and philosophy work hand in hand. We are committed to providing healthy hair care with a low impact on the environment.Come see what you and your hair can do for the Earth</p>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+{% endblock %}
